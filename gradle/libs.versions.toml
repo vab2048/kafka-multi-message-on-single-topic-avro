@@ -1,0 +1,36 @@
+[versions]
+avro = "1.11.3"
+confluent = "7.6.0"
+spring-boot = "3.1.0"
+spring-cloud = "2023.0.1"
+
+[libraries]
+apache-commons-lang3 = { module = "org.apache.commons:commons-lang3", version = "3.10" }
+apache-commons-io = { module = "commons-io:commons-io", version = "2.6" }
+apache-commons-collections4 = { module = "org.apache.commons:commons-collections4", version = "4.4" }
+avro = { module = "org.apache.avro:avro", version.ref = "avro"}
+lombok = { module = "org.projectlombok:lombok", version = "1.18.26" }
+
+########################################################################
+# Spring
+########################################################################
+# Aside from the BOM, none of the spring dependencies have a version defined. This is intentional.
+spring-boot-bom = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
+spring-boot-configuration-processor = { module = "org.springframework.boot:spring-boot-configuration-processor" }
+spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter" }
+spring-boot-starter-data-jdbc = { module = "org.springframework.boot:spring-boot-starter-data-jdbc" }
+spring-boot-starter-logging = { module = "org.springframework.boot:spring-boot-starter-logging" }
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+spring-boot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+spring-cloud-bom = { module = "org.springframework.cloud:spring-cloud-dependencies", version.ref = "spring-cloud" }
+spring-cloud-starter-stream-kafka = { module = "org.springframework.cloud:spring-cloud-starter-stream-kafka" }
+spring-cloud-stream-test-binder = { module = "org.springframework.cloud:spring-cloud-stream-test-binder" }
+########################################################################
+
+[bundles]
+apache-commons = [ "apache-commons-lang3", "apache-commons-io", "apache-commons-collections4" ]
+
+[plugins]
+avro = { id = "com.github.davidmc24.gradle.plugin.avro", version = "1.9.1"}
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
